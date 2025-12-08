@@ -74,7 +74,7 @@ export const TodoList: React.FC = () => {
         </thead>
 
         <tbody>
-          {filteredTodos.map((todo, index) => {
+          {filteredTodos.map((todo) => {
             const isSelected = currentTodo && currentTodo.id === todo.id;
             const isCompleted = todo.completed;
 
@@ -84,7 +84,7 @@ export const TodoList: React.FC = () => {
                   key={todo.id}
                   className={isSelected ? 'has-background-info-light' : ''}
                 >
-                  <td className="is-vcentered">{index + 1}</td>
+                  <td className="is-vcentered">{todo.id}</td>
 
                   <td className="is-vcentered">
                     {isCompleted && (
