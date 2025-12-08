@@ -19,7 +19,7 @@ export const App = () => {
 
         const todos = await getTodos();
 
-        dispatch(setTodos(todos));
+        dispatch(setTodos(todos.slice(0, 5)));
       } catch {
         setHasError(true);
       } finally {

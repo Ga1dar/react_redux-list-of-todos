@@ -18,12 +18,20 @@ export const TodoModal: React.FC = () => {
       return;
     }
 
+    const isMounted = true;
+
     const loadUser = async () => {
       setIsUserLoading(true);
       try {
         const loadedUser = await getUser(currentTodo.userId);
 
-        setUser(loadedUser);
+        if (isMounted) {
+          setUser(loadedUser);
+        }
+      } catch {
+        if (isMounted) {
+          setUser(null);
+        }
       } finally {
         setIsUserLoading(false);
       }
