@@ -18,7 +18,7 @@ export const TodoModal: React.FC = () => {
       return;
     }
 
-    const isMounted = true;
+    let isMounted = true;
 
     const loadUser = async () => {
       setIsUserLoading(true);
@@ -34,6 +34,7 @@ export const TodoModal: React.FC = () => {
         }
       } finally {
         setIsUserLoading(false);
+        isMounted = false;
       }
     };
 
